@@ -1,56 +1,63 @@
 ---
-tags: [architecture, Data-Structure-]
+tags: [architecture, Data_Structure]
 ---
 
-# Data-Structure- Architecture
-
 ## 1. Stack
-- Language: C++ (per README.md, "implemented in C++")
-- No build system / package manager manifest present (no package.json, go.mod, pyproject.toml, or Cargo.toml at repo root)
-- No framework or third-party libraries observed
-- Compiler: GCC 7+ recommended (README.md, Prerequisites)
-- Each .cpp file is standalone with its own `main()` (README.md, "How to Use", line 88)
+- Language: C++ (README.md)
+- No package manifest present at repo root (no package.json / go.mod / pyproject.toml / Cargo.toml)
+- No build system or framework; each file compiles standalone via `g++` (README.md "How to Use")
+- Dependencies: none declared; standard library only (no manifest found)
 
 ## 2. Directory map
 
 | path | what lives there |
 |---|---|
-| Array/ | Top-level folder for array-based problems (39 problems per README.md) |
-| Array/Basic Array DS/ | 10 basic array manipulation solutions (reverse, merge, dedupe, subarrays) |
-| Array/EASY/ | 29 easy-difficulty array problem solutions |
-| Array/Medium/ | Medium-difficulty array problem solutions (2 sum, rotated-array search, swaps) |
-| Hashing/ | Top-level folder for hash-based problem solutions (18 problems per README.md) |
-| Hashing/Easy/ | 18 easy-difficulty hashing solutions (hash map/set based) |
-| README.md | Problem index (Contents + per-topic tables) and usage instructions |
+| Array/ | Array-topic .cpp solutions (39 files, per README.md), split into 3 difficulty subfolders |
+| Array/Basic Array DS/ | 10 basic array .cpp solutions (reverse, merge, subarrays, etc.) |
+| Array/EASY/ | 29 easy-level array .cpp solutions |
+| Array/Medium/ | 10 medium-level array .cpp solutions |
+| Hashing/ | Hash-based .cpp solutions (18 files, per README.md) |
+| Hashing/Easy/ | 18 easy-level hashing .cpp solutions |
 
 ## 3. Diagram
 
 ```mermaid
 flowchart TD
-    Array["Array"]
-    Hashing["Hashing"]
-```
+  Array["Array"]
+  ArrayBasicDS["Array Basic DS"]
+  ArrayEASY["Array EASY"]
+  ArrayMedium["Array Medium"]
+  Hashing["Hashing"]
+  HashingEasy["Hashing Easy"]
 
-No edges observed — each solution file is self-contained (README.md, line 88) with no imports/includes read across files; the two folders are independent problem categories, not interacting components.
+  Array --> ArrayBasicDS
+  Array --> ArrayEASY
+  Array --> ArrayMedium
+  Hashing --> HashingEasy
+```
 
 ## 4. Component index
 - [[Array]]
+- [[Array Basic DS]]
+- [[Array EASY]]
+- [[Array Medium]]
 - [[Hashing]]
+- [[Hashing Easy]]
 
 ## 5. Entry points
-- No single dev/prod entry point exists — no manifest, no main.*/index.*/app.* file at repo root, in src/, or in app/.
-- Per-file compile (README.md, "How to Use"): `g++ -o solution "Problem Name.cpp"` then `./solution`, run from inside the relevant topic folder (e.g. `Array/EASY/`).
-- Each .cpp file supplies its own `main()` for standalone testing (README.md, line 88).
+- No app entry point: this is a collection of independent, self-contained .cpp files, each with its own `main()` (README.md: "Each file is self-contained with a `main()` function for testing.")
+- Run any solution: `g++ -o solution "Problem Name.cpp" && ./solution` (README.md "How to Use")
+- TODO: verify — no main.*/index.*/app.* file exists at repo root, src/, or app/
 
-## 6. Conventions
-- Files are grouped by topic first (Array, Hashing), then by difficulty subfolder (Basic Array DS / EASY / Medium under Array; Easy under Hashing) — observed from directory listing.
-- Filenames are descriptive Title Case with spaces, one problem per file (e.g. "Maximum Subarray Sum – Kadane's Algorithm.cpp") — observed from directory listing.
-- Filename inconsistencies exist in the tree as-is: near-duplicate files with typo/casing variants, e.g. `Array/EASY/FInd The Missing Number.cpp` vs `Array/EASY/Find The Misssing Number.cpp`, and `Array/EASY/ Sum of all Subarrays.cpp` (leading space) vs `Array/EASY/Sum of All subarrays.cpp` — observed from directory listing, not corrected here.
-- The same problem name (`Duplicate within k distance in an array.cpp`) appears once under `Array/EASY/` and once under `Hashing/Easy/` — observed from directory listing.
-- README.md maintains a manual problem index (Contents tables) describing each file's technique — observed from README.md.
+## 6. Conventions (observed only)
+- Files are grouped by topic folder (Array, Hashing), then by difficulty subfolder (Basic Array DS / EASY / Medium under Array; Easy under Hashing)
+- Filenames are descriptive problem-statement titles ending in `.cpp`, spaces allowed (e.g. `Two Sum Pair with given Sum.cpp`)
+- Near-duplicate filenames exist within a folder (e.g. Array/EASY has both `FInd The Missing Number.cpp` and `Find The Misssing Number.cpp`) — TODO: verify intent
+- No shared header/util files, README, or build config found inside any topic/difficulty subfolder
 
 ## 7. Where things go
-- Add a new Array problem -> new .cpp file in `Array/Basic Array DS/`, `Array/EASY/`, or `Array/Medium/` per difficulty, following existing Title Case naming; add a row to README.md's Array Problems table.
-- Add a new Hashing problem -> new .cpp file in `Hashing/Easy/` (or a new difficulty subfolder mirroring Array/'s pattern); add a row to README.md's Hashing Problems table.
-- Add a new topic (e.g. LinkedList, Trees) -> new top-level folder at repo root with its own difficulty subfolders, following the Array/Hashing pattern; add a new row to README.md's Contents table and a new node in this file's diagram + Component index, plus a matching component note.
-- Update problem documentation -> edit the relevant table in README.md to match added/renamed/removed files.
+- Add a new easy array problem: create a new `.cpp` file in `Array/EASY/`, named after the problem statement
+- Add a new medium array problem: create a new `.cpp` file in `Array/Medium/`
+- Add a new hashing problem: create a new `.cpp` file in `Hashing/Easy/` (only difficulty folder present under Hashing)
+- Add a new topic (e.g. Linked List, Trees): create a new top-level folder at repo root mirroring the Array/Hashing layout, and add it to README.md's Contents table
+- Add a new difficulty tier to an existing topic: create a new subfolder under that topic (mirroring Array's Basic Array DS/EASY/Medium split)
