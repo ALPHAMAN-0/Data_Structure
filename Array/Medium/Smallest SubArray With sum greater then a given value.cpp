@@ -24,7 +24,7 @@ Use two-pointer sliding window technique.
 using namespace std;
 
 // Function to find smallest subarray with sum greater than x using sliding window easy expected apprach
-int smallestSubWithSum(int x, vector<int>& arr) {
+int smallestSubWithSumApproach2(int x, vector<int>& arr) {
 
     int i = 0, j = 0;
     int sum = 0;
@@ -63,7 +63,7 @@ int smallestSubWithSum(int x, vector<int>& arr) {
 }
 
 // use prefix sum and binary search (hard approach better approach)
-int smallestSubWithSum(int x, vector<int> &arr) {
+int smallestSubWithSumApproach1(int x, vector<int> &arr) {
     int n = arr.size();
 
     int res = INT_MAX;
