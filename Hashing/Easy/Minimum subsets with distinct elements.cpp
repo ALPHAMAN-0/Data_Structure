@@ -12,6 +12,7 @@ because each duplicate of an element must go into a separate subset to avoid dup
 #include<iostream>
 #include<vector>
 #include<unordered_map>
+#include<climits>
 using namespace std;
 class minimumSubsets{
     public:
