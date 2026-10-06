@@ -80,9 +80,9 @@ int smallestSubWithSumApproach1(int x, vector<int> &arr) {
         int toFind = x + preSum[i - 1];
 
         // Find the first prefix sum > target
-        auto bound = lower_bound(preSum.begin(), preSum.end(), toFind);
+        auto bound = upper_bound(preSum.begin(), preSum.end(), toFind);
 
-        if (bound != preSum.end() && *bound != toFind) {
+        if (bound != preSum.end()) {
             int len = bound - (preSum.begin() + i - 1);
             res = min(res, len);
         }
