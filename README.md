@@ -2,6 +2,18 @@
 
 A curated collection of data structure problems and solutions implemented in **C++**, organized by topic and difficulty level.
 
+## Architecture / How it Works
+
+```mermaid
+flowchart LR
+    A[User] --> B[Data Structure]
+    B --> C{Logic}
+    C --> D[(Data)]
+    C --> E[Output]
+    D --> C
+```
+
+
 ---
 
 ## Contents
