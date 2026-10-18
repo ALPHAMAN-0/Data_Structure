@@ -5,12 +5,18 @@ A curated collection of data structure problems and solutions implemented in **C
 ## Architecture / How it Works
 
 ```mermaid
-flowchart LR
-    A[User] --> B[Data Structure]
-    B --> C{Logic}
-    C --> D[(Data)]
-    C --> E[Output]
-    D --> C
+flowchart TD
+  Array["Array"]
+  ArrayBasicDS["Array Basic DS"]
+  ArrayEASY["Array EASY"]
+  ArrayMedium["Array Medium"]
+  Hashing["Hashing"]
+  HashingEasy["Hashing Easy"]
+
+  Array --> ArrayBasicDS
+  Array --> ArrayEASY
+  Array --> ArrayMedium
+  Hashing --> HashingEasy
 ```
 
 
