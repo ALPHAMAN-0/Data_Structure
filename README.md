@@ -2,6 +2,24 @@
 
 A curated collection of data structure problems and solutions implemented in **C++**, organized by topic and difficulty level.
 
+## Architecture / How it Works
+
+```mermaid
+flowchart TD
+  Array["Array"]
+  ArrayBasicDS["Array Basic DS"]
+  ArrayEASY["Array EASY"]
+  ArrayMedium["Array Medium"]
+  Hashing["Hashing"]
+  HashingEasy["Hashing Easy"]
+
+  Array --> ArrayBasicDS
+  Array --> ArrayEASY
+  Array --> ArrayMedium
+  Hashing --> HashingEasy
+```
+
+
 ---
 
 ## Contents
@@ -86,3 +104,7 @@ A curated collection of data structure problems and solutions implemented in **C
    ./solution
    ```
 4. Each file is self-contained with a `main()` function for testing.
+5. Run the tests for a selection of the solutions (from the repository root):
+   ```bash
+   g++ -std=c++17 tests/solutions_tests.cpp -o tests/solutions_tests.out && ./tests/solutions_tests.out
+   ```

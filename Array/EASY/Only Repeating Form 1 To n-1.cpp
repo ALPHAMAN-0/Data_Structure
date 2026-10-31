@@ -40,7 +40,7 @@ APPROACHES:
 
 using namespace std;
 // Approach 1
-int findDuplicate(vector<int>& arr) {
+int findDuplicateApproach1(vector<int>& arr) {
 
     // Create an unordered_set
     unordered_set<int> s;
@@ -54,7 +54,7 @@ int findDuplicate(vector<int>& arr) {
     return -1;
 }
 // Approach 2
-int findDuplicate(vector<int>& arr) {
+int findDuplicateApproach2(vector<int>& arr) {
     int n = arr.size();
   
     // If any element is visited again, then
@@ -70,7 +70,7 @@ int findDuplicate(vector<int>& arr) {
     return -1; 
 }
 // Approach 3
-int findDuplicate(vector<int>& arr) {
+int findDuplicateApproach3(vector<int>& arr) {
     int n = arr.size();
   
     // Find the sum of elements in the array
@@ -81,7 +81,7 @@ int findDuplicate(vector<int>& arr) {
     return duplicate;
 }
 //approach 4
-int findDuplicate(vector<int>& arr) {
+int findDuplicateApproach4(vector<int>& arr) {
     int n = arr.size();
     int res = 0;
 
@@ -96,7 +96,7 @@ int findDuplicate(vector<int>& arr) {
     
     return res;
 }
-int findDuplicate(vector<int>& arr) {
+int findDuplicateApproach5(vector<int>& arr) {
 
     for (int i = 0; i < arr.size(); i++) {
         if (arr[abs(arr[i])] < 0) {
@@ -107,7 +107,7 @@ int findDuplicate(vector<int>& arr) {
 
     return -1;
 }
-int findDuplicate(vector<int>& arr) {
+int findDuplicateApproach6(vector<int>& arr) {
 
     // slow pointer
     int slow = arr[0]; 
