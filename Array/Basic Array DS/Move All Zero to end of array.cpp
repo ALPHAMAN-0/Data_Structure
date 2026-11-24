@@ -43,7 +43,7 @@ void pushZerosToEnd(vector<int>& arr) {
         }
     }
 }
-void pushZerosToEnd(vector<int> &arr) {
+void pushZerosToEndStablePartition(vector<int> &arr) {
     stable_partition(arr.begin(), arr.end(), [](int n) { 
                                        return n != 0; });
 }

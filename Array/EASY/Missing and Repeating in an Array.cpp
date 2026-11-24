@@ -21,6 +21,9 @@ APPROACH 2 (XOR):
 - Divide all numbers into two groups based on this bit
 - XOR each group separately to identify both numbers
 */
+#include <vector>
+using namespace std;
+
 vector<int> findTwoElementApproach1(vector<int> &arr)
 {
     int n = arr.size();

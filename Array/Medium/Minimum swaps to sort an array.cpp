@@ -21,7 +21,7 @@ Approach 2: Cycle Detection
 #include <algorithm>
 #include <unordered_map>
 using namespace std;
-int minSwaps(vector<int> &arr) {
+int minSwapsApproach1(vector<int> &arr) {
     
     // Temporary array to store elements in sorted order
     vector<int> temp(arr.begin(), arr.end());
@@ -49,7 +49,7 @@ int minSwaps(vector<int> &arr) {
     }
     return swaps; 
 }
-int minSwaps(vector<int> &arr) {
+int minSwapsApproach2(vector<int> &arr) {
   	int n = arr.size();
     
     // Array to Keep track of those elements 
